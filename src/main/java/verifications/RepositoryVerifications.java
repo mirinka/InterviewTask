@@ -20,13 +20,6 @@ public class RepositoryVerifications {
         assertEquals(expectedRepository.getDescription(), actualDescription, "Repository description is not correct!");
     }
 
-    public static void verifyNameAndDescription(String expectedName, String expectedDescription, Response response) {
-        RepositoryResponse actualRepository = response.as(RepositoryResponse.class);
-
-        assertEquals(expectedName, actualRepository.getName(), "Repository name is not correct!");
-        assertEquals(expectedDescription, actualRepository.getDescription(), "Repository description is not correct!");
-    }
-
     public static void verifyNameAndNullDescription(Repository expectedRepository, Response response) {
         RepositoryResponse actualRepository = response.as(RepositoryResponse.class);
 

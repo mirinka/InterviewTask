@@ -7,7 +7,6 @@ import org.junit.jupiter.api.TestInstance;
 import payloads.Repository;
 import requests.RepositoryApi;
 
-import static utils.configuration.Settings.TOKEN;
 import static verifications.RepositoryVerifications.*;
 import static verifications.StatusCodeVerifications.verify201or422StatusCode;
 

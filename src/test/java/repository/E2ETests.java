@@ -8,7 +8,6 @@ import requests.RepositoryApi;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static utils.configuration.Settings.REPOSITORY_OWNER;
 import static utils.configuration.Settings.TOKEN;
 import static verifications.StatusCodeVerifications.*;
 

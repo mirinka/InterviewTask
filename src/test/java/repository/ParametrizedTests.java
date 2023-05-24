@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import requests.RepositoryApi;
 
-import static utils.configuration.Settings.TOKEN;
 import static verifications.StatusCodeVerifications.verifyResponseCodeEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

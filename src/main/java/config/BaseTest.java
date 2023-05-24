@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static utils.constants.Routing.BASE_URI;
-import static utils.configuration.Settings.REPOSITORY_OWNER;
 
 public class BaseTest {
 

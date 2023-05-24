@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import requests.RepositoryApi;
 
-import static utils.configuration.Settings.TOKEN;
 import static verifications.ResponseTimeVerifications.verifyResponseTimeLessThan;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
