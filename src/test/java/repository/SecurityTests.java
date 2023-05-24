@@ -19,7 +19,7 @@ public class SecurityTests extends BaseTest {
         repository = repositoryTestData.getRepository();
 
         // act
-        Response response = RepositoryApi.postRepository(repository);
+        Response response = RepositoryApi.postRepositoryWithoutToken(repository);
 
         // assert
         verify401ResponseCode(response);

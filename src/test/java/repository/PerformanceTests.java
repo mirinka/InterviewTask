@@ -18,7 +18,7 @@ public class PerformanceTests extends BaseTest {
         repository = repositoryTestData.getRepository();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verifyResponseTimeLessThan(response, 2000l);

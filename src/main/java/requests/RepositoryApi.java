@@ -7,11 +7,13 @@ import payloads.InvalidRepository;
 import payloads.Repository;
 
 import static io.restassured.RestAssured.given;
+import static utils.configuration.Settings.REPOSITORY_OWNER;
+import static utils.configuration.Settings.TOKEN;
 import static utils.constants.Routing.*;
 
 public class RepositoryApi {
 
-    public static Response postRepository(Repository payload) {
+    public static Response postRepositoryWithoutToken(Repository payload) {
         return given()
                 .basePath(POST_REPOSITORY)
                 .contentType(ContentType.JSON)
@@ -29,10 +31,9 @@ public class RepositoryApi {
                 .when()
                 .post();
     }
-
-    public static Response postRepository(DifferentDataTypeRepository payload, String token) {
+    public static Response postRepository(Repository payload) {
         return given()
-                .header("Authorization", "Bearer " + token)
+                .header("Authorization", "Bearer " + TOKEN)
                 .basePath(POST_REPOSITORY)
                 .contentType(ContentType.JSON)
                 .body(payload)
@@ -40,9 +41,9 @@ public class RepositoryApi {
                 .post();
     }
 
-    public static Response postInvalidRepository(InvalidRepository payload, String token) {
+    public static Response postRepository(DifferentDataTypeRepository payload) {
         return given()
-                .header("Authorization", "Bearer " + token)
+                .header("Authorization", "Bearer " + TOKEN)
                 .basePath(POST_REPOSITORY)
                 .contentType(ContentType.JSON)
                 .body(payload)
@@ -50,17 +51,27 @@ public class RepositoryApi {
                 .post();
     }
 
-    public static Response deleteRepository(String token, String owner, String repositoryName) {
+    public static Response postInvalidRepository(InvalidRepository payload) {
         return given()
-                .header("Authorization", "Bearer " + token)
-                .basePath(DELETE_REPOSITORY + owner + "/" + repositoryName)
+                .header("Authorization", "Bearer " + TOKEN)
+                .basePath(POST_REPOSITORY)
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .when()
+                .post();
+    }
+
+    public static Response deleteRepository(String repositoryName) {
+        return given()
+                .header("Authorization", "Bearer " + TOKEN)
+                .basePath(DELETE_REPOSITORY + REPOSITORY_OWNER + "/" + repositoryName)
                 .delete();
     }
 
-    public static Response getRepository(String token, String owner, String repositoryName) {
+    public static Response getRepository(String repositoryName) {
         return given()
-                .header("Authorization", "Bearer " + token)
-                .basePath(REPOSITORIES + owner + "/" + repositoryName)
+                .header("Authorization", "Bearer " + TOKEN)
+                .basePath(REPOSITORIES + REPOSITORY_OWNER + "/" + repositoryName)
                 .when()
                 .get();
     }

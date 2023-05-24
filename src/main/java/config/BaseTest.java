@@ -13,7 +13,6 @@ import java.util.List;
 
 import static utils.constants.Routing.BASE_URI;
 import static utils.configuration.Settings.REPOSITORY_OWNER;
-import static utils.configuration.Settings.TOKEN;
 
 public class BaseTest {
 
@@ -36,7 +35,7 @@ public class BaseTest {
     @AfterAll
     public void cleanUp() {
         for (Repository repository : repositoriesToDelete) {
-            RepositoryApi.deleteRepository(TOKEN, REPOSITORY_OWNER, repository.getName());
+            RepositoryApi.deleteRepository(repository.getName());
         }
     }
 }

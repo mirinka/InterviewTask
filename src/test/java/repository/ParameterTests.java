@@ -23,7 +23,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepository();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify201ResponseCode(response);
@@ -37,7 +37,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepository();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verifyNameAndDescription(repository, response);
@@ -52,7 +52,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepository();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         String actualName = response.jsonPath().get("name");
@@ -68,7 +68,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithEmptyName();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify422ResponseCode(response);
@@ -80,7 +80,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithEmptyDescription();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify201ResponseCode(response);
@@ -96,7 +96,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithEmptyNameAndDescription();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify422ResponseCode(response);
@@ -108,7 +108,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithNullValues();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify422ResponseCode(response);
@@ -123,7 +123,7 @@ public class ParameterTests extends BaseTest {
         RepositoryApi.postRepository(firstRepository, TOKEN);
 
         // act
-        Response responseSecondRepository = RepositoryApi.postRepository(secondRepository, TOKEN);
+        Response responseSecondRepository = RepositoryApi.postRepository(secondRepository);
 
         // assert
         verify422ResponseCode(responseSecondRepository);
@@ -137,10 +137,10 @@ public class ParameterTests extends BaseTest {
         String repositoryDescription = repositoryTestData.getRepositoryDescription();
         Repository firstRepository = repositoryTestData.getRepositoryWithSpecificDescription(repositoryDescription);
         Repository secondRepository = repositoryTestData.getRepositoryWithSpecificDescription(repositoryDescription);
-        RepositoryApi.postRepository(firstRepository, TOKEN);
+        RepositoryApi.postRepository(firstRepository);
 
         // act
-        Response responseSecondRepository = RepositoryApi.postRepository(secondRepository, TOKEN);
+        Response responseSecondRepository = RepositoryApi.postRepository(secondRepository);
 
         // assert
         verify201ResponseCode(responseSecondRepository);
@@ -156,7 +156,7 @@ public class ParameterTests extends BaseTest {
         Repository expectedRepository = repositoryTestData.getRepositoryWithSpecificNameAndDescription(STRIPPED_SPACES_STRING, repository.getDescription());
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify201ResponseCode(response);
@@ -172,7 +172,7 @@ public class ParameterTests extends BaseTest {
         Repository expectedRepository = repositoryTestData.getRepositoryWithSpecificNameAndNoDescription(String.valueOf(repository.getName()));
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify201ResponseCode(response);
@@ -188,7 +188,7 @@ public class ParameterTests extends BaseTest {
         InvalidRepository repository = repositoryTestData.getInvalidRepository();
 
         // act
-        Response response = RepositoryApi.postInvalidRepository(repository, TOKEN);
+        Response response = RepositoryApi.postInvalidRepository(repository);
 
         // assert
         verify422ResponseCode(response);
@@ -200,7 +200,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithOneSymbol();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify201ResponseCode(response);
@@ -215,7 +215,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithLongDescription();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // asserts
         verify201ResponseCode(response);
@@ -230,7 +230,7 @@ public class ParameterTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithCapitalLettersOnly();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // asserts
         verify201ResponseCode(response);

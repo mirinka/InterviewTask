@@ -24,7 +24,7 @@ public class ParametrizedTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithSpecificNameAndDescription(repositoryName, repositoryDescription);
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verifyResponseCodeEquals(statusCode, response.statusCode());

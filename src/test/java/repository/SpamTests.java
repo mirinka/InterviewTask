@@ -26,7 +26,7 @@ public class SpamTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithSpecialSymbols();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify201or422StatusCode(response);
@@ -45,7 +45,7 @@ public class SpamTests extends BaseTest {
         Repository expectedRepository = repositoryTestData.getRepositoryWithStrippedScriptName();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
         String actualRepositoryName = response.jsonPath().get("name");
 
         // assert
@@ -65,7 +65,7 @@ public class SpamTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithLongName();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // assert
         verify201or422StatusCode(response);
@@ -84,7 +84,7 @@ public class SpamTests extends BaseTest {
         Repository expectedRepository = repositoryTestData.getRepositoryWithSpecificNameAndDescription("-", repository.getDescription());
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // asserts
         verify201or422StatusCode(response);
@@ -102,7 +102,7 @@ public class SpamTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithArabicSymbols();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // asserts
         verify201or422StatusCode(response);
@@ -120,7 +120,7 @@ public class SpamTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithChineseSymbols();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // asserts
         verify201or422StatusCode(response);
@@ -138,7 +138,7 @@ public class SpamTests extends BaseTest {
         repository = repositoryTestData.getRepositoryWithEmojiSymbols();
 
         // act
-        Response response = RepositoryApi.postRepository(repository, TOKEN);
+        Response response = RepositoryApi.postRepository(repository);
 
         // asserts
         verify201or422StatusCode(response);

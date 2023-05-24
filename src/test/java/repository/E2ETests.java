@@ -26,11 +26,11 @@ public class E2ETests extends BaseTest {
         RepositoryApi.postRepository(repository, TOKEN);
 
         // delete repository
-        Response deleteResponse = RepositoryApi.deleteRepository(TOKEN, REPOSITORY_OWNER, repository.getName());
+        Response deleteResponse = RepositoryApi.deleteRepository(repository.getName());
         verify204ResponseCode(deleteResponse);
 
         // try to retrieve deleted repository
-        Response getResponse = RepositoryApi.getRepository(TOKEN, REPOSITORY_OWNER, repository.getName());
+        Response getResponse = RepositoryApi.getRepository(repository.getName());
         verify404ResponseCode(getResponse);
     }
 
@@ -45,7 +45,7 @@ public class E2ETests extends BaseTest {
         RepositoryApi.postRepository(repository, TOKEN);
 
         // retrieve created repository
-        Response getResponse = RepositoryApi.getRepository(TOKEN, REPOSITORY_OWNER, repository.getName());
+        Response getResponse = RepositoryApi.getRepository(repository.getName());
         verify200ResponseCode(getResponse);
 
         // verify fields are stored correct
